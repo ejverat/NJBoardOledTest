@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/src/NJBoardOledTest.X/build/
+/src/NJBoardOledTest.X/dist/

@@ -32,6 +32,9 @@
 */
 #include "mcc_generated_files/system/system.h"
 
+#include "board_test.h"
+#include <stdbool.h>
+const uint8_t SSD1306_I2C_ADDR = 0x3C; /* 7-bit address */
 /*
     Main application
 */
@@ -55,7 +58,13 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
-
+    
+    
+    bool test_pass = hw_test_i2c(SSD1306_I2C_ADDR);
+    if(test_pass)
+    {
+	    hw_test_display(SSD1306_I2C_ADDR);
+    }
 
     while(1)
     {
