@@ -19,6 +19,8 @@ extern "C" {
 bool hw_test_i2c(uint8_t address);
 bool hw_test_display(uint8_t address);
 void hw_test_display_pixel(uint8_t pixel);
+void hw_test_display_fill(uint8_t address);
+void hw_test_osc();
 
 #ifdef	__cplusplus
 }

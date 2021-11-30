@@ -59,11 +59,11 @@ static void Timer0_DefaultOverflowCallback(void);
 
 void Timer0_Initialize(void)
 {
-    //TMR0H 248; 
-    TMR0H = 0xF8;
+    //TMR0H 224; 
+    TMR0H = 0xE0;
 
-    //TMR0L 48; 
-    TMR0L = 0x30;
+    //TMR0L 192; 
+    TMR0L = 0xC0;
 
     //T0CS FOSC/4; T0CKPS 1:1; T0ASYNC not_synchronised; 
     T0CON1 = 0x50;

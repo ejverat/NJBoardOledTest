@@ -113,16 +113,16 @@ const i2c2eventHandler i2c2_eventTable[] = {
  */
 void I2C_Initialize(void)
 {
-    /* CKE disabled; SMP Standard Speed;  */
-    SSP2STAT = 0x80;
+    /* CKE disabled; SMP High Speed;  */
+    SSP2STAT = 0x0;
     /* SSPM FOSC/4_SSPxADD_I2C; CKP disabled; SSPEN disabled;  */
     SSP2CON1 = 0x8;
     /* SEN disabled; RSEN disabled; PEN disabled; RCEN disabled; ACKEN disabled; ACKDT acknowledge; GCEN disabled;  */
     SSP2CON2 = 0x0;
     /* DHEN disabled; AHEN disabled; SBCDE disabled; SDAHT 300ns; BOEN disabled; SCIE disabled; PCIE disabled;  */
     SSP2CON3 = 0x8;
-    /* SSPADD 199;  */
-    SSP2ADD = 0xC7;
+    /* SSPADD 19;  */
+    SSP2ADD = 0x13;
     I2C2_InterruptsEnable();
     I2C_CallbackRegister(I2C2_DefaultCallback);
     SSP2CON1bits.SSPEN = 1;

@@ -31,6 +31,7 @@
     THIS SOFTWARE.
 */
 #include "mcc_generated_files/system/system.h"
+#include "mcc_generated_files/timer/delay.h"
 
 #include "board_test.h"
 #include <stdbool.h>
@@ -59,12 +60,16 @@ int main(void)
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
     
-    
-    bool test_pass = hw_test_i2c(SSD1306_I2C_ADDR);
-    if(test_pass)
+	 
+    DELAY_milliseconds(500);
+    hw_test_osc();
+    /*while (!hw_test_i2c(SSD1306_I2C_ADDR))
     {
-	    hw_test_display(SSD1306_I2C_ADDR);
-    }
+	    DELAY_milliseconds(100);
+    }*/
+    hw_test_display(SSD1306_I2C_ADDR);
+
+    hw_test_display_fill(SSD1306_I2C_ADDR);
 
     while(1)
     {
