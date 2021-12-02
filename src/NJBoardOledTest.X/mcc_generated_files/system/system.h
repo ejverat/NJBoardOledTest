@@ -50,6 +50,7 @@
 #include "../system/clock.h"
 #include "../system/pins.h"
 #include "../i2c_host/mssp2.h"
+#include "../spi/mssp1.h"
 #include "../timer/tmr0.h"
 #include "../system/interrupt.h"
 

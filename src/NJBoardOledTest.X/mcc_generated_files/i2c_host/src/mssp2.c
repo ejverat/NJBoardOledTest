@@ -3,7 +3,7 @@
  *
  * @file mssp2.c
  *
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  *
  * @brief This file contains the driver code for I2C2 module.
  *
@@ -76,16 +76,16 @@ static i2c_host_event_states_t I2C2_EVENT_RESET(void);
 /*
   Section: Driver Interface
  */
-const i2c_host_interface_t i2c_host_interface = {
-    .Initialize = I2C_Initialize,
-    .Deinitialize = I2C_Deinitialize,
-    .Write = I2C_Write,
-    .Read = I2C_Read,
-    .WriteRead = I2C_WriteRead,
+const i2c_host_interface_t i2c2_host_interface = {
+    .Initialize = I2C2_Initialize,
+    .Deinitialize = I2C2_Deinitialize,
+    .Write = I2C2_Write,
+    .Read = I2C2_Read,
+    .WriteRead = I2C2_WriteRead,
     .TransferSetup = NULL,
-    .ErrorGet = I2C_ErrorGet,
-    .IsBusy = I2C_IsBusy,
-    .CallbackRegister = I2C_CallbackRegister,
+    .ErrorGet = I2C2_ErrorGet,
+    .IsBusy = I2C2_IsBusy,
+    .CallbackRegister = I2C2_CallbackRegister,
     .Tasks = NULL
 };
 
@@ -111,7 +111,7 @@ const i2c2eventHandler i2c2_eventTable[] = {
 /**
  Section: Public Interfaces
  */
-void I2C_Initialize(void)
+void I2C2_Initialize(void)
 {
     /* CKE disabled; SMP High Speed;  */
     SSP2STAT = 0x0;
@@ -119,16 +119,16 @@ void I2C_Initialize(void)
     SSP2CON1 = 0x8;
     /* SEN disabled; RSEN disabled; PEN disabled; RCEN disabled; ACKEN disabled; ACKDT acknowledge; GCEN disabled;  */
     SSP2CON2 = 0x0;
-    /* DHEN disabled; AHEN disabled; SBCDE disabled; SDAHT 300ns; BOEN disabled; SCIE disabled; PCIE disabled;  */
-    SSP2CON3 = 0x8;
+    /* DHEN disabled; AHEN disabled; SBCDE disabled; SDAHT 100ns; BOEN disabled; SCIE disabled; PCIE disabled;  */
+    SSP2CON3 = 0x0;
     /* SSPADD 19;  */
     SSP2ADD = 0x13;
     I2C2_InterruptsEnable();
-    I2C_CallbackRegister(I2C2_DefaultCallback);
+    I2C2_CallbackRegister(I2C2_DefaultCallback);
     SSP2CON1bits.SSPEN = 1;
 }
 
-void I2C_Deinitialize(void)
+void I2C2_Deinitialize(void)
 {
     SSP2STAT = 0x00;
     SSP2CON1 = 0x00;
@@ -136,13 +136,13 @@ void I2C_Deinitialize(void)
     SSP2CON3 = 0x00;
     SSP2ADD = 0x00;
     I2C2_InterruptsDisable();
-    I2C_CallbackRegister(I2C2_DefaultCallback);
+    I2C2_CallbackRegister(I2C2_DefaultCallback);
 }
 
-bool I2C_Write(uint16_t address, uint8_t *data, size_t dataLength)
+bool I2C2_Write(uint16_t address, uint8_t *data, size_t dataLength)
 {
     bool retStatus = false;
-    if (!I2C_IsBusy())
+    if (!I2C2_IsBusy())
     {
         i2c2Status.busy = true;
         i2c2Status.address = address;
@@ -158,10 +158,10 @@ bool I2C_Write(uint16_t address, uint8_t *data, size_t dataLength)
     return retStatus;
 }
 
-bool I2C_Read(uint16_t address, uint8_t *data, size_t dataLength)
+bool I2C2_Read(uint16_t address, uint8_t *data, size_t dataLength)
 {
     bool retStatus = false;
-    if (!I2C_IsBusy())
+    if (!I2C2_IsBusy())
     {
         i2c2Status.busy = true;
         i2c2Status.address = address;
@@ -177,10 +177,10 @@ bool I2C_Read(uint16_t address, uint8_t *data, size_t dataLength)
     return retStatus;
 }
 
-bool I2C_WriteRead(uint16_t address, uint8_t *writeData, size_t writeLength, uint8_t *readData, size_t readLength)
+bool I2C2_WriteRead(uint16_t address, uint8_t *writeData, size_t writeLength, uint8_t *readData, size_t readLength)
 {
     bool retStatus = false;
-    if (!I2C_IsBusy())
+    if (!I2C2_IsBusy())
     {
         i2c2Status.busy = true;
         i2c2Status.address = address;
@@ -196,19 +196,19 @@ bool I2C_WriteRead(uint16_t address, uint8_t *writeData, size_t writeLength, uin
     return retStatus;
 }
 
-i2c_host_error_t I2C_ErrorGet(void)
+i2c_host_error_t I2C2_ErrorGet(void)
 {
     i2c_host_error_t retErrorState = i2c2Status.errorState;
     i2c2Status.errorState = I2C_ERROR_NONE;
     return retErrorState;
 }
 
-bool I2C_IsBusy(void)
+bool I2C2_IsBusy(void)
 {
     return i2c2Status.busy || SSP2STATbits.S;
 }
 
-void I2C_CallbackRegister(void (*callbackHandler)(void))
+void I2C2_CallbackRegister(void (*callbackHandler)(void))
 {
     if (callbackHandler != NULL)
     {
@@ -216,12 +216,12 @@ void I2C_CallbackRegister(void (*callbackHandler)(void))
     }
 }
 
-void I2C_ISR()
+void I2C2_ISR()
 {
     I2C2_EventHandler();
 }
 
-void I2C_ERROR_ISR()
+void I2C2_ERROR_ISR()
 {
     I2C2_ErrorEventHandler();
 }

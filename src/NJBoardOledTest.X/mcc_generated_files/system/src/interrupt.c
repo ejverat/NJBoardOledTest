@@ -60,17 +60,17 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     // interrupt handler
     if(INTCONbits.PEIE == 1)
     {
-        if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+        if(PIE3bits.BCL2IE == 1 && PIR3bits.BCL2IF == 1)
         {
-            Timer0_OverflowISR();
-        } 
-        else if(PIE3bits.BCL2IE == 1 && PIR3bits.BCL2IF == 1)
-        {
-            I2C_ERROR_ISR();
+            I2C2_ERROR_ISR();
         } 
         else if(PIE3bits.SSP2IE == 1 && PIR3bits.SSP2IF == 1)
         {
-            I2C_ISR();
+            I2C2_ISR();
+        } 
+        else if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+        {
+            Timer0_OverflowISR();
         } 
         else
         {

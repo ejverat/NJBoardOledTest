@@ -1,22 +1,20 @@
 /**
-  @Generated CCL Source File
+  SPI Generated Driver API Interface File
 
-  @Company:
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    system.c
+  @File Name
+    spi_interface.h
 
-  @Summary:
-    This is the system.c file generated using CCL
+  @Summary
+    This is the generated driver interface file for the SPI driver.
 
-  @Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
-    Generation Information :
-        Driver Version    :  2.00
+  @Description
+    This Interface file provides APIs for driver for SPI.
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v2.20
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC8 v2.30 and above
+        MPLAB             :  MPLABX v5.45 and above
 */
 
 /*
@@ -40,19 +38,37 @@
     THIS SOFTWARE.
 */
 
- /**
-   Section: Included Files
+#ifndef SPI_INTERFACE_H
+#define SPI_INTERFACE_H
+
+/**
+ Section: Included Files
+*/
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+/**
+ Section: Data Type Definitions
+*/
+        
+/**
+  SPI Driver function structure.
+
+  @Summary
+    Structure containing the function pointers of SPI driver.
  */
-#include "../system.h"
+struct SPI_INTERFACE
+{   
+    void (*Initialize)(void);
+    void (*Close)(void);
+    bool (*Open)(uint8_t spiConfigIndex);
+    void (*BufferExchange)(void *bufferData, size_t bufferSize);
+    void (*BufferRead)(void *bufferData, size_t bufferSize);
+    void (*BufferWrite)(void *bufferData, size_t bufferSize); 
+    uint8_t (*ByteExchange)(uint8_t byteData);    
+    uint8_t (*ByteRead)(void);
+    void (*ByteWrite)(uint8_t byteData);
+};
 
-
-void SYSTEM_Initialize(void)
-{
-    CLOCK_Initialize();
-    PIN_MANAGER_Initialize();
-    I2C2_Initialize();
-    SPI1_Initialize();
-    Timer0_Initialize();
-    INTERRUPT_Initialize();
-}
-
+#endif //SPI_INTERFACE_H

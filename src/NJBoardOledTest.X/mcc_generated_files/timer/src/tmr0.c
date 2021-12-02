@@ -59,14 +59,14 @@ static void Timer0_DefaultOverflowCallback(void);
 
 void Timer0_Initialize(void)
 {
-    //TMR0H 224; 
-    TMR0H = 0xE0;
+    //TMR0H 255; 
+    TMR0H = 0xFF;
 
-    //TMR0L 192; 
-    TMR0L = 0xC0;
+    //TMR0L 194; 
+    TMR0L = 0xC2;
 
-    //T0CS FOSC/4; T0CKPS 1:1; T0ASYNC not_synchronised; 
-    T0CON1 = 0x50;
+    //T0CS FOSC/4; T0CKPS 1:128; T0ASYNC synchronised; 
+    T0CON1 = 0x47;
 
     //Load TMRTMR0 value to the 16-bit reload variable
     timerTMR0ReloadVal16bit = ((uint16_t)TMR0H << 8) | TMR0L;
@@ -127,8 +127,6 @@ void Timer0_OverflowISR(void)
     TMR0H = timerTMR0ReloadVal16bit >> 8;
     TMR0L = (uint8_t) timerTMR0ReloadVal16bit;
 
-    //Ticker function call;
-    //Ticker is 1 -> Callback function gets called every time this ISR executes
     if(Timer0_OverflowCallback)
     {
         Timer0_OverflowCallback();

@@ -4,6 +4,7 @@
 #include "mcc_generated_files/timer/delay.h"
 #include "mcc_generated_files/timer/tmr0.h"
 #include "mcc_generated_files/system/pins.h"
+#include "mcc_generated_files/spi/mssp1.h"
 
 #include <stdarg.h>
 
@@ -33,15 +34,15 @@ inline void add_i2c_byte(uint8_t byte)
 
 inline bool send_i2c_buffer(uint8_t address)
 {
-	if(i2c_host_interface.Write
+	if(i2c2_host_interface.Write
 			(address,i2c_buffer,(size_t)(i2c_buffer_p - i2c_buffer)))
 	{
 		DELAY_milliseconds(10);
-		if(i2c_host_interface.IsBusy())
+		if(i2c2_host_interface.IsBusy())
 		{
 			return false;
 		}
-		if(i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+		if(i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
 		{
 			return true;
 		}
@@ -128,7 +129,8 @@ void hw_test_display_pixel(uint8_t pixel)
 
 }
 
-void hw_test_display_fill(uint8_t address)
+//void hw_test_display_fill(uint8_t address)
+void hw_test_display_fill(uint8_t address, uint8_t width, uint8_t height)
 {
 
 
@@ -138,11 +140,11 @@ void hw_test_display_fill(uint8_t address)
 	/* Set column (segment) from 0 to 127*/
 	add_i2c_byte(0x21);
 	add_i2c_byte(0);
-	add_i2c_byte(127);
+	add_i2c_byte(width-1);
 	/* Set row (page) from 0 to 3*/
 	add_i2c_byte(0x22);
 	add_i2c_byte(0);
-	add_i2c_byte(7);
+	add_i2c_byte(height/8 - 1);
 
 	send_i2c_buffer(address);
 
@@ -151,28 +153,113 @@ void hw_test_display_fill(uint8_t address)
 
 	size_t i,j;
 	add_i2c_byte(0b11111111);
-	for (i=0; i<128-2; i++)
+	for (i=0; i<width-2; i++)
 	{
 		add_i2c_byte(0b00000001);
 	}
 	add_i2c_byte(0b11111111);
-	for (i=0; i<6; i++)
+	for (i=0; i<(height/8)-2; i++)
 	{
 		add_i2c_byte(0b11111111);
-		for (j=0; j<128-2; j++)
+		for (j=0; j<width-2; j++)
 		{
 			add_i2c_byte(0b00000000);
 		}
 		add_i2c_byte(0b11111111);
 	}
 	add_i2c_byte(0b11111111);
-	for (i=0; i<128-2; i++)
+	for (i=0; i<width-2; i++)
 	{
 		add_i2c_byte(0b10000000);
 	}
 	add_i2c_byte(0b11111111);
 
 	send_i2c_buffer(address);
+}
+
+static void oled_data(uint8_t byte)
+{
+	IO_CS_SetLow();
+	IO_DC_SetHigh();
+
+	SPI1.ByteWrite(byte);
+
+	IO_CS_SetHigh();
+}
+
+static void oled_command(uint8_t byte)
+{
+	IO_CS_SetLow();
+	IO_DC_SetLow();
+
+	SPI1.ByteWrite(byte);
+
+	IO_CS_SetHigh();
+}
+
+static void oled_set_colum_address(uint8_t a, uint8_t b)
+{
+	oled_command(0x15);
+	oled_data(a);
+	oled_data(b);
+}
+
+static void oled_set_write_ram()
+{
+	oled_command(0x5c);
+}
+
+static void oled_set_read_ram()
+{
+	oled_command(0x5d);
+}
+
+static void oled_set_row_address(uint8_t a, uint8_t b)
+{
+	oled_command(0x75);
+	oled_data(a);
+	oled_data(b);
+}
+
+static void oled_set_remap(uint8_t a, uint8_t b)
+{
+	oled_command(0xA0);
+	oled_data(a);
+	oled_data(b);
+}
+
+static void oled_set_display_start_line(uint8_t a)
+{
+	oled_command(0xA1);
+	oled_data(a);
+}
+
+static void oled_set_display_offset(uint8_t a)
+{
+	oled_command(0xA2);
+	oled_data(a);
+}
+
+static void oled_display_mode(uint8_t a)
+{
+	oled_command(a);
+}
+
+void hw_test_display_fill_25664()
+{
+	//reset status
+	SPI1.Initialize();
+	SPI1.Open(0);
+
+	IO_CS_SetHigh();
+	IO_RW_SetLow();
+	IO_DC_SetLow();
+
+	IO_RES_SetLow();
+	DELAY_milliseconds(150);
+	IO_RES_SetHigh();
+	DELAY_milliseconds(150);
+	
 }
 
 static void tmr0_callback()

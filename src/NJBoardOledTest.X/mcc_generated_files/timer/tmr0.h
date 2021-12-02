@@ -53,7 +53,6 @@
 #include <stdbool.h>
 #include "timer_interface.h"
 
-#define Timer0_INTERRUPT_TICKER_FACTOR    1
 
 /**
  @ingroup timer0_driver

@@ -3,7 +3,7 @@
  *
  * @file mssp2.h
  *
- * @defgroup i2c_host I2C_HOST
+ * @defgroup i2c2_host I2C2_HOST
  *
  * @brief This file contains API prototypes and other data types for I2C2 module.
  *
@@ -49,47 +49,47 @@
  */
 
 /**
- * @ingroup i2c_host
- * @brief External object for i2c_host_interface.
+ * @ingroup i2c2_host
+ * @brief External object for i2c2_host_interface.
  */
-extern const i2c_host_interface_t i2c_host_interface;
+extern const i2c_host_interface_t i2c2_host_interface;
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This API initializes the I2C2 driver.
  *        This routine initializes the I2C2 module.
  *        This routine must be called before any other I2C2 routine is called.
  *        This routine should only be called once during system initialization.
  * @param void
  * @return void
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-void I2C_Initialize(void);
+void I2C2_Initialize(void);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This API Deinitializes the I2C2 driver.
  *        This routine disables the I2C2 module.
  * @param void
  * @return void
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-void I2C_Deinitialize(void);
+void I2C2_Deinitialize(void);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function writes data to a Client on the bus.
  *        The function will attempt to write length number of bytes from data
  *        buffer to a Client whose address is specified by address.
  *        The I2C Host will generate a Start condition,write the data and then
  *        generate a Stop Condition. If the Client NACK the request or a bus 
  *        error was encountered on the bus, the transfer is terminated.
- *        The application can call the I2C_ErrorGet() function to
+ *        The application can call the I2C2_ErrorGet() function to
  *        know that cause of the error.
  *
  *        The function is non-blocking. It initiates bus activity and returns
  *        immediately. The transfer is then completed in the peripheral 
- *        interrupt. For polling mode, user has to call  I2C_Tasks
+ *        interrupt. For polling mode, user has to call  I2C2_Tasks
  *        in while loop. A transfer request cannot be placed when another 
  *        transfer is in progress. Calling this function when another function 
  *        is already in progress will cause the function to return false.
@@ -104,24 +104,24 @@ void I2C_Deinitialize(void);
  *                 initiated.
  *         false - The request fails,if there was already a transfer in
  *                 progress when this function was called
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-bool I2C_Write(uint16_t address, uint8_t *data, size_t dataLength);
+bool I2C2_Write(uint16_t address, uint8_t *data, size_t dataLength);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function reads the data from a Client on the bus.
  *        The function will attempt to read length number of bytes into data
  *        buffer from a Client whose address is specified as address. 
  *        The I2C Host generate a Start condition, read the data and then 
  *        generate a Stop Condition. If the Client NAKs the request or a bus 
  *        error is encountered on the bus, the transfer is terminated. 
- *        The application can call I2C_ErrorGet() function to know
+ *        The application can call I2C2_ErrorGet() function to know
  *        that cause of the error.
  *
  *        The function is non-blocking. It initiates bus activity and returns
  *        immediately. The transfer is then completed in the peripheral 
- *        interrupt. For polling mode, user has to call  I2C_Tasks
+ *        interrupt. For polling mode, user has to call  I2C2_Tasks
  *        in while loop. A transfer request cannot be placed when another 
  *        transfer is in progress. Calling this function when another function 
  *        is already in progress will cause the function to return false.
@@ -136,12 +136,12 @@ bool I2C_Write(uint16_t address, uint8_t *data, size_t dataLength);
  *                 initiated.
  *         false - The request fails,if there was already a transfer in
  *                 progress when this function was called
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-bool I2C_Read(uint16_t address, uint8_t *data, size_t dataLength);
+bool I2C2_Read(uint16_t address, uint8_t *data, size_t dataLength);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function writes data from the writeData to the bus 
  *        and then reads data from the Client and stores the received in the
  *        readData. The function generates a Start condition on the bus and 
@@ -153,11 +153,11 @@ bool I2C_Read(uint16_t address, uint8_t *data, size_t dataLength);
  *
  *        If the Client NAKs the request or a bus error was encountered on 
  *        the bus, the transfer is terminated. The application can call 
- *        I2C_ErrorGet() function to know that cause of the error.
+ *        I2C2_ErrorGet() function to know that cause of the error.
  *
  *        The function is non-blocking. It initiates bus activity and returns
  *        immediately. The transfer is then completed in the peripheral 
- *        interrupt. For polling mode, user has to call  I2C_Tasks
+ *        interrupt. For polling mode, user has to call  I2C2_Tasks
  *        in while loop. A transfer request cannot be placed when another 
  *        transfer is in progress. Calling this function when another function 
  *        is already in progress will cause the function to return false.
@@ -173,35 +173,35 @@ bool I2C_Read(uint16_t address, uint8_t *data, size_t dataLength);
  *                 initiated.
  *         false - The request fails,if there was already a transfer in
  *                 progress when this function was called
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-bool I2C_WriteRead(uint16_t address, uint8_t *writeData, size_t writeLength, uint8_t *readData, size_t readLength);
+bool I2C2_WriteRead(uint16_t address, uint8_t *writeData, size_t writeLength, uint8_t *readData, size_t readLength);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function get the error occurred during I2C Transmit and Receive.
  *        
  * @param void
  * @return I2C_ERROR_NONE - No Error
  *         I2C_ERROR_NACK - Client returned NACK
  *         I2C_ERROR_BUS_COLLISION - Bus Collision Error
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-i2c_host_error_t I2C_ErrorGet(void);
+i2c_host_error_t I2C2_ErrorGet(void);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This API checks if I2C is busy.
- *        I2C must be initialized with @ref I2C_Initialize() 
+ *        I2C must be initialized with @ref I2C2_Initialize() 
  *        before calling this API.
  * @param void
  * @return true - if I2C is busy; false - if I2C is free
- * @ref i2c_host_example_code
+ * @ref i2c2_host_example_code
  */
-bool I2C_IsBusy(void);
+bool I2C2_IsBusy(void);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief Setter function for I2C interrupt callback, This will be called when any error is generated
  * @param CallbackHandler - Pointer to custom Callback.
  * @return void
@@ -215,9 +215,9 @@ bool I2C_IsBusy(void);
  * void main(void)
  * {
  *     SYSTEM_Initialize();
- *     I2C_Initialize();
- *     I2C_CallbackRegister(customI2CCallback);
- *     while (!I2C_WriteRead(0x50, writeData, 1, readData , 2));
+ *     I2C2_Initialize();
+ *     I2C2_CallbackRegister(customI2CCallback);
+ *     while (!I2C2_WriteRead(0x50, writeData, 1, readData , 2));
  *
  *     while (1)
  *     {
@@ -225,28 +225,28 @@ bool I2C_IsBusy(void);
  * }
  * @endcode
  */
-void I2C_CallbackRegister(void (*callbackHandler)(void));
+void I2C2_CallbackRegister(void (*callbackHandler)(void));
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function is ISR function for I2C2 Common interrupts
  * @param void
  * @return void
  */
-void I2C_ISR(void);
+void I2C2_ISR(void);
 
 /**
- * @ingroup i2c_host
+ * @ingroup i2c2_host
  * @brief This function is ISR function for I2C2 Error interrupts
  * @param void
  * @return void
  */
-void I2C_ERROR_ISR(void);
+void I2C2_ERROR_ISR(void);
 
  
 /**
- * @ingroup i2c_host
- * @example i2c_host_example_code
+ * @ingroup i2c2_host
+ * @example i2c2_host_example_code
  * @brief In this I2C Host example, a byte of data is written in to EEPROM and read it back. 
  *        Case 1: Data 0xAA is written in to EEPROM at location 0x0010 and read the same back, using I2C1_Write() and I2C1_WriteRead() functions.
  *        Case 2: Data 0x55 is written in to EEPROM at location 0x0020 and read the same back using I2C1_Write() and I2C1_Read() functions.
@@ -270,15 +270,15 @@ void I2C_ERROR_ISR(void);
  *    transmitData[2] = 0xAA;  // load data
  *    writeLength = 3;  // 2 bytes of location address + 1 byte data
  *
- *    if(!I2C_Write(eepromAddr, transmitData, writeLength))
+ *    if(!I2C2_Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!I2C_IsBusy())
+ *    if(!I2C2_IsBusy())
  *    {
- *        if ( I2C_ErrorGet() == I2C_ERROR_NONE)
+ *        if ( I2C2_ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -290,15 +290,15 @@ void I2C_ERROR_ISR(void);
  *
  *    writeLength = 2; // 2 bytes of location address
  *    readLength = 1; // 1 byte read
- *    if(I2C_WriteRead(eepromAddr, transmitData, writeLength, readData , readLength))
+ *    if(I2C2_WriteRead(eepromAddr, transmitData, writeLength, readData , readLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!I2C_IsBusy())
+ *    if(!I2C2_IsBusy())
  *    {
- *         if ( I2C_ErrorGet() == I2C_ERROR_NONE)
+ *         if ( I2C2_ErrorGet() == I2C_ERROR_NONE)
  *         {
  *            // WriteRead operation is successful
  *         }
@@ -313,15 +313,15 @@ void I2C_ERROR_ISR(void);
  *    transmitData[1] = 0x20;  // load LSB of EEPROM location
  *    transmitData[2] = 0x55;  // load data
  *    writeLength = 2 + 1; // 2 bytes of location address + 1 byte data
- *    if(!I2C_Write(eepromAddr, transmitData, writeLength))
+ *    if(!I2C2_Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!I2C_IsBusy())
+ *    if(!I2C2_IsBusy())
  *    {
- *        if ( I2C_ErrorGet() == I2C_ERROR_NONE)
+ *        if ( I2C2_ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -332,15 +332,15 @@ void I2C_ERROR_ISR(void);
  *    }
  *
  *    writeLength = 2; // 2 bytes of location address
- *    if(!I2C_Write(eepromAddr, transmitData, writeLength))
+ *    if(!I2C2_Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!I2C_IsBusy())
+ *    if(!I2C2_IsBusy())
  *    {
- *        if ( I2C_ErrorGet() == I2C_ERROR_NONE)
+ *        if ( I2C2_ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -351,15 +351,15 @@ void I2C_ERROR_ISR(void);
  *    }
  *
  *    readLength = 1; // 1 byte read
- *    if(!I2C_Read(eepromAddr, readData, readLength)))
+ *    if(!I2C2_Read(eepromAddr, readData, readLength)))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!I2C_IsBusy())
+ *    if(!I2C2_IsBusy())
  *    {
- *        if ( I2C_ErrorGet() == I2C_ERROR_NONE)
+ *        if ( I2C2_ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Read operation is successful
  *        }

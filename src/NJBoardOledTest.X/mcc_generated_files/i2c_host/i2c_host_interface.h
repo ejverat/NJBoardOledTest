@@ -62,8 +62,8 @@ typedef struct
 } i2c_host_interface_t;
 
 /**
- * @ingroup i2c_host
- * @example i2c_host_interface_example_code
+ * @ingroup i2c2_host
+ * @example i2c2_host_interface_example_code
  * @brief In this I2C Host example, a byte of data is written in to EEPROM and read it back.
  *        Case 1: Data 0xAA is written in to EEPROM at location 0x0010 and read the same back, using I2C1_Write() and I2C1_WriteRead() functions.
  *        Case 2: Data 0x55 is written in to EEPROM at location 0x0020 and read the same back using I2C1_Write() and I2C1_Read() functions.
@@ -88,15 +88,15 @@ typedef struct
  *    transmitData[2] = 0xAA;  // load data
  *    writeLength = 3;  // 2 bytes of location address + 1 byte data
  *
- *    if(!i2c_host_interface.Write(eepromAddr, transmitData, writeLength))
+ *    if(!i2c2_host_interface.Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!i2c_host_interface.IsBusy())
+ *    if(!i2c2_host_interface.IsBusy())
  *    {
- *        if ( i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+ *        if ( i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -108,15 +108,15 @@ typedef struct
  *
  *    writeLength = 2; // 2 bytes of location address
  *    readLength = 1; // 1 byte read
- *    if(i2c_host_interface.WriteRead(eepromAddr, transmitData, writeLength, readData , readLength))
+ *    if(i2c2_host_interface.WriteRead(eepromAddr, transmitData, writeLength, readData , readLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!i2c_host_interface.IsBusy())
+ *    if(!i2c2_host_interface.IsBusy())
  *    {
- *         if ( i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+ *         if ( i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
  *         {
  *            // WriteRead operation is successful
  *         }
@@ -131,15 +131,15 @@ typedef struct
  *    transmitData[1] = 0x20;  // load LSB of EEPROM location
  *    transmitData[2] = 0x55;  // load data
  *    writeLength = 2 + 1; // 2 bytes of location address + 1 byte data
- *    if(!i2c_host_interface.Write(eepromAddr, transmitData, writeLength))
+ *    if(!i2c2_host_interface.Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!i2c_host_interface.IsBusy())
+ *    if(!i2c2_host_interface.IsBusy())
  *    {
- *        if ( i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+ *        if ( i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -150,15 +150,15 @@ typedef struct
  *    }
  *
  *    writeLength = 2; // 2 bytes of location address
- *    if(!i2c_host_interface.Write(eepromAddr, transmitData, writeLength))
+ *    if(!i2c2_host_interface.Write(eepromAddr, transmitData, writeLength))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!i2c_host_interface.IsBusy())
+ *    if(!i2c2_host_interface.IsBusy())
  *    {
- *        if ( i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+ *        if ( i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Write operation is successful
  *        }
@@ -169,15 +169,15 @@ typedef struct
  *    }
  *
  *    readLength = 1; // 1 byte read
- *    if(!i2c_host_interface.Read(eepromAddr, readData, readLength)))
+ *    if(!i2c2_host_interface.Read(eepromAddr, readData, readLength)))
  *    {
  *        // I2C bus busy, retry later
  *    }
  *
  *    // Confirm write operation completed and check for error
- *    if(!i2c_host_interface.IsBusy())
+ *    if(!i2c2_host_interface.IsBusy())
  *    {
- *        if ( i2c_host_interface.ErrorGet() == I2C_ERROR_NONE)
+ *        if ( i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
  *        {
  *            // Read operation is successful
  *        }
