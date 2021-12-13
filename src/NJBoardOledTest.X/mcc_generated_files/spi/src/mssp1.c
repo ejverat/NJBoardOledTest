@@ -70,16 +70,16 @@ typedef struct {
 
 //con1 == SSPxCON1, stat == SSPxSTAT, add == SSPxADD, operation == Host/Client
 static const spi1_configuration_t spi1_configuration[] = {   
-    { 0x10, 0x24, 0x1, 0 }
+    { 0x10, 0x64, 0x1, 0 }
 };
 
 void SPI1_Initialize(void)
 {
     //SPI setup
-    SSP1STAT = 0x24;
+    SSP1STAT = 0x64;
     SSP1CON1 = 0x10;
     SSP1ADD = 0x1;
-    TRISCbits.TRISC2 = 0;
+    TRISCbits.TRISC6 = 0;
     SSP1CON1bits.SSPEN = 0;
 }
 
@@ -91,7 +91,7 @@ bool SPI1_Open(uint8_t spiConfigIndex)
         SSP1CON1 = spi1_configuration[spiConfigIndex].con1;
         SSP1CON2 = 0x00;
         SSP1ADD  = spi1_configuration[spiConfigIndex].add;
-        TRISCbits.TRISC2 = spi1_configuration[spiConfigIndex].operation;
+        TRISCbits.TRISC6 = spi1_configuration[spiConfigIndex].operation;
         SSP1CON1bits.SSPEN = 1;
         return true;
     }
