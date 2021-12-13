@@ -31,6 +31,9 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>board_test.h</itemPath>
+      <itemPath>gdisplay.h</itemPath>
+      <itemPath>obus.h</itemPath>
+      <itemPath>bus.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -73,6 +76,8 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>board_test.c</itemPath>
+      <itemPath>gdisplay.c</itemPath>
+      <itemPath>obus.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
