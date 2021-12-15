@@ -71,7 +71,7 @@ int main(void)
 
     //hw_test_display_fill(SSD1306_I2C_ADDR,128,64);
     //hw_test_display_fill(SSD1306_I2C_ADDR,128,32);
-    hw_test_display_fill_25664();
+    hw_test_display_fill_25664_v2();
 
     while(1)
     {

@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/main.c</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/src/pins.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_spi.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/system.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/board_test.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/gdisplay.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/gdisplay.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/obus.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_cmd.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1322.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/main.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/src/pins.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/obus.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1322.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/bus.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_spi.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/pins.h</file>
         </group>
     </open-files>

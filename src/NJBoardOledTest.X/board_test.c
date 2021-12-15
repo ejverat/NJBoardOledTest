@@ -6,6 +6,9 @@
 #include "mcc_generated_files/system/pins.h"
 #include "mcc_generated_files/spi/mssp1.h"
 
+#include "gdisplay.h"
+#include "SSD1322.h"
+
 #include <stdarg.h>
 
 unsigned char NHD_Logo [] = {
@@ -603,6 +606,19 @@ void hw_test_display_fill_25664()
 	oled_image_display(NHD_Logo);
 	DELAY_milliseconds(5000);
 	
+}
+
+void hw_test_display_fill_25664_v2()
+{
+	//reset status
+	gdisplay_t* gd = ssd1322_get_gd();
+	gd->init_fn();
+
+	DELAY_milliseconds(2000);
+	gd->clear_fn();
+	DELAY_milliseconds(2000);
+	gd->draw_fn(0,0,NHD_Logo,0);
+	DELAY_milliseconds(5000);
 }
 
 static void tmr0_callback()
