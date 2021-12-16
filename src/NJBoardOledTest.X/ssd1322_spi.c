@@ -30,13 +30,13 @@ void ssd1322_set_cmd(bool cmd)
 	}
 	else
 	{
-		IO_CS_SetHigh();
+		IO_DC_SetHigh();
 	}
 }
 
-void ssd1322_reset(bool cmd)
+void ssd1322_reset(bool rst)
 {
-	if (true)
+	if (rst)
 	{
 		IO_RES_SetLow();
 	}

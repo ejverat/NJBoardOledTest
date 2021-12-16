@@ -611,6 +611,7 @@ void hw_test_display_fill_25664()
 void hw_test_display_fill_25664_v2()
 {
 	//reset status
+	ssd1322_setup(64, 256);
 	gdisplay_t* gd = ssd1322_get_gd();
 	gd->init_fn();
 
@@ -620,6 +621,8 @@ void hw_test_display_fill_25664_v2()
 	gd->draw_fn(0,0,NHD_Logo,0);
 	DELAY_milliseconds(5000);
 }
+
+void hw_test_display_fill();
 
 static void tmr0_callback()
 {

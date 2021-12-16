@@ -18,7 +18,7 @@ extern "C" {
 bool ssd1322_spi_init();
 void ssd1322_enabled(bool enabled);
 void ssd1322_set_cmd(bool cmd);
-void ssd1322_reset(bool cmd);
+void ssd1322_reset(bool rst);
 bool ssd1322_write_byte(uint8_t byte);
 
 

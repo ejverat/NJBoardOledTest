@@ -13,8 +13,9 @@ extern "C" {
 #endif
 
 #include "gdisplay.h"
+#include <stdio.h>
 
-void ssd1322_setup();
+void ssd1322_setup(size_t height, size_t width);
 gdisplay_t* ssd1322_get_gd();
 
 

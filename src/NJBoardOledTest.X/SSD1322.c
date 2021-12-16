@@ -148,12 +148,12 @@ static bool ssd1322_clear()
 	ssd1322_enabled(true);
 	DELAY_milliseconds(2);
 	ssd1322_cmd_set_column_address(0x1C,0x5B);
-	ssd1322_cmd_set_row_address(0x00,0x3F);
+	ssd1322_cmd_set_row_address(0x00,ssd1322_gd.height-1);
 	ssd1322_cmd(SSD1322_CMD_WRITE_RAM);
 
-	for(i=0;i<64;i++) //Columns
+	for(i=0;i<ssd1322_gd.width/4;i++) //Columns
 	{
-		for(j=0;j<128;j++) //Rows
+		for(j=0;j<ssd1322_gd.height;j++) //Rows
 		{
 			ssd1322_data(0x00);
 			DELAY_microseconds(100);
@@ -199,7 +199,7 @@ static bool ssd1322_init()
 	ssd1322_cmd_set_precharge_voltage(0x1f);                        // Set Precharge Voltage    
 	ssd1322_cmd_set_second_precharge_period(0x08);                  // Set Second Precharge Period    
 	ssd1322_cmd_set_vcomh_voltage(0x07);                            // Set VCOMH Voltage     
-	ssd1322_cmd(SSD1322_CMD_SET_DISPLAY_MODE_N);                                 // Set Normal Display    
+	ssd1322_cmd(SSD1322_CMD_SET_DISPLAY_MODE_EOFF);                                 // Set Normal Display    
 	ssd1322_cmd(SSD1322_CMD_EXIT_PARTIAL_DISPLAY);                             // Exit Partial Display Mode    
 
 	DELAY_milliseconds(2);
@@ -221,7 +221,7 @@ static bool ssd1322_draw(uint16_t col, uint16_t row, uint8_t* data, size_t size)
 	//TODO: Calculate row and col by size
 	ssd1322_cmd_set_remap(0x14, 0x11);
 	ssd1322_cmd_set_column_address(0x1C,0x5B);
-	ssd1322_cmd_set_row_address(0x00,0x3F);
+	ssd1322_cmd_set_row_address(0x00,ssd1322_gd.height-1);
 	ssd1322_cmd(SSD1322_CMD_WRITE_RAM);
 
 	for(i=0;i<64;i++) //Columns
@@ -266,21 +266,16 @@ static bool ssd1322_draw(uint16_t col, uint16_t row, uint8_t* data, size_t size)
 	return true;
 }
 
-void ssd1322_setup()
+void ssd1322_setup(size_t height, size_t width)
 {
 	ssd1322_gd.init_fn = ssd1322_init;
 	ssd1322_gd.clear_fn = ssd1322_clear;
 	ssd1322_gd.draw_fn = ssd1322_draw;
-	ssd1322_gd.height = 64;
-	ssd1322_gd.width = 256;
+	ssd1322_gd.height = height;
+	ssd1322_gd.width = width;
 }
 
 gdisplay_t* ssd1322_get_gd()
 {
-	ssd1322_gd.init_fn = ssd1322_init;
-	ssd1322_gd.clear_fn = ssd1322_clear;
-	ssd1322_gd.draw_fn = ssd1322_draw;
-	ssd1322_gd.height = 64;
-	ssd1322_gd.width = 256;
 	return &ssd1322_gd;
 }
