@@ -153,7 +153,7 @@ static bool ssd1322_clear()
 
 	for(i=0;i<ssd1322_gd.width/4;i++) //Columns
 	{
-		for(j=0;j<ssd1322_gd.height;j++) //Rows
+		for(j=0;j<ssd1322_gd.height*2;j++) //Rows
 		{
 			ssd1322_data(0x00);
 			DELAY_microseconds(100);
