@@ -7,8 +7,10 @@
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/system.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/board_test.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/gdisplay.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1306_i2c.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/gdisplay.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/obus.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/images.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_cmd.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1322.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/main.c</file>
@@ -16,7 +18,9 @@
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/obus.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1322.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/bus.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1306.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_spi.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1306.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/pins.h</file>
         </group>
     </open-files>

@@ -35,6 +35,10 @@
       <itemPath>SSD1322.h</itemPath>
       <itemPath>ssd1322_spi.h</itemPath>
       <itemPath>ssd1322_cmd.h</itemPath>
+      <itemPath>images.h</itemPath>
+      <itemPath>SSD1306.h</itemPath>
+      <itemPath>ssd1306_i2c.h</itemPath>
+      <itemPath>ssd1306_cmd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -80,6 +84,8 @@
       <itemPath>gdisplay.c</itemPath>
       <itemPath>SSD1322.c</itemPath>
       <itemPath>ssd1322_spi.c</itemPath>
+      <itemPath>SSD1306.c</itemPath>
+      <itemPath>ssd1306_i2c.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -219,6 +225,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
