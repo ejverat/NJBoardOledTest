@@ -53,3 +53,4 @@ dkms.conf
 /src/NJBoardOledTest.X/build/
 /src/NJBoardOledTest.X/dist/
 .ccls-cache/*
+*.blob
