@@ -13,6 +13,10 @@ add_library(oled-graphics SHARED
   include/display.h
   src/display.c
   include/display_comm.h
+  include/ssd1322.h
+  src/ssd1322.c
+  include/queue.h
+  src/queue.c
 )
 
 target_include_directories(oled-graphics

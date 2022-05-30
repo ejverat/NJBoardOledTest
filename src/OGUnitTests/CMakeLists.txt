@@ -45,6 +45,8 @@ include_directories(${GTestIncludes}
 add_executable(CreateDisplayWithWidthOrHeightZeroReturnsError main.cpp
                 tst_createdisplaywithwidthorheightzeroreturnserror.cpp
                 src/tst_display_comm.cpp
+                src/tst_ssd1322.cpp
+                src/tst_queue.cpp
                ${GTestFiles})
 add_test(NAME CreateDisplayWithWidthOrHeightZeroReturnsError COMMAND CreateDisplayWithWidthOrHeightZeroReturnsError)
 target_link_libraries(CreateDisplayWithWidthOrHeightZeroReturnsError PRIVATE Threads::Threads

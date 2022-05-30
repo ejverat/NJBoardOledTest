@@ -5,8 +5,8 @@
 
 using namespace testing;
 
-display_payload_t payload = display_comm_default;
-display_comm_t comm;
+static display_payload_t payload = display_comm_default;
+static display_comm_t comm;
 
 std::string cmd_call_str = "";
 std::string data_call_str = "";
