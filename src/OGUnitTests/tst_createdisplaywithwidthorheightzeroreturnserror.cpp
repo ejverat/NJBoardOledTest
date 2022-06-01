@@ -51,3 +51,23 @@ TEST(DisplayType, SetDisplaySizeWithDisplayPointerNullReturnsFalse)
     ASSERT_EQ(result,false);
 }
 
+static bool clearFunctionWasCalled = false;
+
+static bool Clear()
+{
+    clearFunctionWasCalled = true;
+    return true;
+}
+
+TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunctionShouldBeCalled)
+{
+    display_t disp;
+    disp.clear_fn = Clear;
+
+    clearFunctionWasCalled = false;
+
+    display_clear(&disp);
+
+    ASSERT_EQ(clearFunctionWasCalled,true);
+}
+

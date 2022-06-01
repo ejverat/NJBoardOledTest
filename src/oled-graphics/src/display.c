@@ -15,3 +15,8 @@ bool set_display_size(display_t* disp, uint16_t width, uint16_t height)
     return true;
 }
 
+bool display_clear(display_t* disp)
+{
+    return disp->clear_fn();
+}
+
