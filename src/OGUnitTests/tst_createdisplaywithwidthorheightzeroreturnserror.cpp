@@ -59,7 +59,7 @@ static bool Clear()
     return true;
 }
 
-TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunctionShouldBeCalled)
+TEST(DisplayType, GIVEN_ADisplay_WHEN_ClearFunctionIsCalled_THEN_ClearPointerFunctionShouldBeCalled)
 {
     display_t disp;
     disp.clear_fn = Clear;
@@ -69,5 +69,16 @@ TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunct
     display_clear(&disp);
 
     ASSERT_EQ(clearFunctionWasCalled,true);
+}
+
+TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunctionShouldBeCalled)
+{
+    display_t disp;
+    image_t img;
+    disp.draw_fn = Draw;
+
+    drawFunctionWasCalled = false;
+
+    display_draw(&disp,&img,)
 }
 

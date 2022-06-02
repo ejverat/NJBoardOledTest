@@ -39,6 +39,7 @@
       <itemPath>SSD1306.h</itemPath>
       <itemPath>ssd1306_i2c.h</itemPath>
       <itemPath>ssd1306_cmd.h</itemPath>
+      <itemPath>image.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

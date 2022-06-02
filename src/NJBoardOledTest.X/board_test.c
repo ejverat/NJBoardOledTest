@@ -45,7 +45,20 @@ void hw_test_display_ssd1322(size_t height, size_t width)
 	image_t logo;
 	logo.data = NHD_Logo;
 	logo.size = sizeof(NHD_Logo);
-	draw_gdisplay(gd, 0, 0, &logo);
+	uint16_t col;
+	for (col = 0; col < width-232; col++)
+	{
+		clear_gdisplay(gd);
+		draw_gdisplay(gd, col, 0, &logo);
+		DELAY_milliseconds(1000);
+	}
+	uint16_t row;
+	for (row = 0; row < height-25; row++)
+	{
+		clear_gdisplay(gd);
+		draw_gdisplay(gd, 0, row, &logo);
+		DELAY_milliseconds(1000);
+	}
 	DELAY_milliseconds(5000);
 }
 
