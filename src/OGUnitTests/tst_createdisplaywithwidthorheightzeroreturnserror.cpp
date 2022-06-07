@@ -71,7 +71,7 @@ TEST(DisplayType, GIVEN_ADisplay_WHEN_ClearFunctionIsCalled_THEN_ClearPointerFun
     ASSERT_EQ(clearFunctionWasCalled,true);
 }
 
-TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunctionShouldBeCalled)
+/*TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunctionShouldBeCalled)
 {
     display_t disp;
     image_t img;
@@ -80,5 +80,5 @@ TEST(DisplayType, GIVEN_ADisplay_WHEN_DrawFunctionIsCalled_THEN_DrawPointerFunct
     drawFunctionWasCalled = false;
 
     display_draw(&disp,&img,)
-}
+}*/
 

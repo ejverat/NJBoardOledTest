@@ -5,7 +5,7 @@
 
 using namespace testing;
 
-static display_payload_t payload = display_comm_default;
+/*static display_payload_t payload = display_comm_default;
 static display_comm_t comm;
 
 std::string cmd_call_str = "";
@@ -124,4 +124,4 @@ TEST(DisplayComm, IfPayloadsFlagIsCommandFalseThenSendDataFunctionIsCalled)
 
     ASSERT_EQ(data_call_str,"c");
     EXPECT_EQ(result,true);
-}
+}*/

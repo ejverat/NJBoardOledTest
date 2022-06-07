@@ -7,7 +7,7 @@ bool init_gdisplay(gdisplay_t* gd)
 
 bool draw_gdisplay(gdisplay_t* gd, uint16_t col, uint16_t row, image_t* img)
 {
-	return gd->draw_fn(col,row,img->data,img->size);
+	return gd->draw_fn(col,row,img);
 }
 
 bool clear_gdisplay(gdisplay_t* gd)

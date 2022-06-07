@@ -56,3 +56,5 @@ dkms.conf
 *.blob
 *.user
 build-*
+/src/oled-graphics/build/
+/src/oled-graphics/dist/

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(CreateDisplayWithWidthOrHeightZeroReturnsError LANGUAGES CXX)
+project(OledGraphicsUnitTests LANGUAGES CXX)
 
 enable_testing()
 
@@ -42,13 +42,15 @@ endif ()
 include_directories(${GTestIncludes}
                         ${CMAKE_CURRENT_LIST_DIR}/../oled-graphics/src)
 
-add_executable(CreateDisplayWithWidthOrHeightZeroReturnsError main.cpp
+add_executable(OledGraphicsUnitTests main.cpp
                 tst_createdisplaywithwidthorheightzeroreturnserror.cpp
                 src/tst_display_comm.cpp
                 src/tst_ssd1322.cpp
                 src/tst_queue.cpp
+                src/tst_nhd31125664ucb2.cpp
+                src/tst_ssd1322_utils.cpp
                ${GTestFiles})
-add_test(NAME CreateDisplayWithWidthOrHeightZeroReturnsError COMMAND CreateDisplayWithWidthOrHeightZeroReturnsError)
-target_link_libraries(CreateDisplayWithWidthOrHeightZeroReturnsError PRIVATE Threads::Threads
+add_test(NAME OledGraphicsUnitTests COMMAND OledGraphicsUnitTests)
+target_link_libraries(OledGraphicsUnitTests PRIVATE Threads::Threads
                         PUBLIC oled-graphics)
 

@@ -10,33 +10,17 @@ extern "C" {
 
 typedef struct
 {
-    bool (*send_cmd_fn)(uint8_t* ,uint16_t );
-    bool (*send_data_fn)(uint8_t* ,uint16_t );
+    bool (*init_fn)();
+    void (*enable_fn)();
+    void (*disable_fn)();
+    void (*start_reset_fn)();
+    void (*end_reset_fn)();
+    void (*enable_cmd_fn)();
+    void (*disable_cmd_fn)();
+    void (*enable_data_fn)();
+    void (*disable_data_fn)();
+    bool (*send_byte_fn)(uint8_t);
 }display_comm_t;
-
-typedef struct
-{
-    uint8_t* buffer;
-    uint16_t size;
-    bool isCommand;
-}display_payload_t;
-
-const display_payload_t display_comm_default = {NULL,0,false};
-
-inline bool display_comm_send(display_comm_t* comm, display_payload_t* payload)
-{
-    if (comm == NULL || payload == NULL )
-        return false;
-    if (payload->buffer == NULL)
-        return false;
-    if (comm->send_cmd_fn == NULL || comm->send_data_fn == NULL)
-        return false;
-    if (payload->isCommand)
-        return comm->send_cmd_fn(payload->buffer,payload->size);
-    else
-        return comm->send_data_fn(payload->buffer,payload->size);
-    return true;
-}
 
 #ifdef	__cplusplus
 }

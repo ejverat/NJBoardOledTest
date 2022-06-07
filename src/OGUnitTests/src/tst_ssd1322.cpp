@@ -1,59 +1,107 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
+#include <sstream>
 #include <string>
 
+
+extern "C"{
+
 #include "ssd1322.h"
-#include "ssd1322.c"
+#include "timer.h"
 #include "display_comm.h"
+#include "ssd1322_cmd.c"
+
+}
 
 using namespace testing;
 
-static display_payload_t payload = display_comm_default;
-static display_comm_t comm;
-std::string events_str;
+display_comm_t commSpy;
+waiter_t waiter_test;
+std::ostringstream spiedStream;
 
-void set_command_bit(bool cmd)
+bool init_test()
 {
-    events_str += "c";
-    events_str += std::to_string(static_cast<int>(cmd));
+    spiedStream << "I";
+    return true;
 }
 
-TEST(SSD1322, SendCommandSetCommandBitTrue)
+void enable_test()
 {
-    ssd1322_set_command_bit_handler(ssd1322_instance(),set_command_bit);
-
-    uint8_t buff;
-
-    payload.buffer = &buff;
-    payload.size = 0;
-    payload.isCommand = true;
-
-    comm.send_cmd_fn = ssd1322_send_command;
-    comm.send_data_fn = ssd1322_send_data;
-
-    events_str = "";
-
-    bool result = display_comm_send(&comm,&payload);
-    ASSERT_EQ(events_str,"c1");
-    ASSERT_EQ(result,true);
+    spiedStream << "E";
 }
 
-TEST(SSD1322, SendCommandSetCommandBitFalse)
+void disable_test()
 {
-    ssd1322_set_command_bit_handler(ssd1322_instance(),set_command_bit);
+    spiedStream << "S";
+}
 
-    uint8_t buff;
+void start_reset_test()
+{
+    spiedStream << "sr";
+}
 
-    payload.buffer = &buff;
-    payload.size = 0;
-    payload.isCommand = false;
+void end_reset_test()
+{
+    spiedStream << "er";
+}
 
-    comm.send_cmd_fn = ssd1322_send_command;
-    comm.send_data_fn = ssd1322_send_data;
+void enable_cmd_test()
+{
+    spiedStream << "ec";
+}
 
-    events_str = "";
+void disable_cmd_test()
+{
+    spiedStream << "dc";
+}
 
-    bool result = display_comm_send(&comm,&payload);
-    ASSERT_EQ(events_str,"c0");
-    ASSERT_EQ(result,true);
+void enable_data_test()
+{
+    spiedStream << "ed";
+}
+
+void disable_data_test()
+{
+    spiedStream << "dd";
+}
+
+bool send_byte_test(uint8_t byte)
+{
+    spiedStream << (unsigned int)byte;
+
+    return true;
+}
+
+void wait_ms_tst(uint16_t ms)
+{
+    spiedStream << "W" << (unsigned int)ms;
+}
+
+void TestSetup()
+{
+    commSpy.init_fn = init_test;
+    commSpy.enable_fn = enable_test;
+    commSpy.disable_fn = disable_test;
+    commSpy.start_reset_fn = start_reset_test;
+    commSpy.end_reset_fn = end_reset_test;
+    commSpy.enable_cmd_fn = enable_cmd_test;
+    commSpy.disable_cmd_fn = disable_cmd_test;
+    commSpy.enable_data_fn = enable_data_test;
+    commSpy.disable_data_fn = disable_data_test;
+    commSpy.send_byte_fn = send_byte_test;
+
+    waiter_test.wait_ms = wait_ms_tst;
+
+    spiedStream.flush();
+    gdisplay_driver_t driver;
+    ssd1322_setup(&driver,&commSpy,&waiter_test);
+}
+
+TEST(ssd1322, nothing)
+{
+    TestSetup();
+
+    bool status = ssd1322_init();
+    std::string spiedStr = spiedStream.str();
+    ASSERT_EQ(status,true);
 }

@@ -31,15 +31,9 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>board_test.h</itemPath>
-      <itemPath>gdisplay.h</itemPath>
-      <itemPath>SSD1322.h</itemPath>
-      <itemPath>ssd1322_spi.h</itemPath>
-      <itemPath>ssd1322_cmd.h</itemPath>
       <itemPath>images.h</itemPath>
-      <itemPath>SSD1306.h</itemPath>
-      <itemPath>ssd1306_i2c.h</itemPath>
-      <itemPath>ssd1306_cmd.h</itemPath>
-      <itemPath>image.h</itemPath>
+      <itemPath>disp_spi_comm.h</itemPath>
+      <itemPath>timer_delay.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -82,11 +76,8 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>board_test.c</itemPath>
-      <itemPath>gdisplay.c</itemPath>
-      <itemPath>SSD1322.c</itemPath>
-      <itemPath>ssd1322_spi.c</itemPath>
-      <itemPath>SSD1306.c</itemPath>
-      <itemPath>ssd1306_i2c.c</itemPath>
+      <itemPath>disp_spi_comm.c</itemPath>
+      <itemPath>timer_delay.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -116,6 +107,23 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../oled-graphics"
+                            CT="3"
+                            CN="default"
+                            AC="true"
+                            BL="true"
+                            WD="../oled-graphics"
+                            BC="${MAKE}  -f Makefile CONF=default"
+                            DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
+                            CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"
+                            OP="dist/default/production/oled-graphics.a"
+                            DOP="dist/default/debug/oled-graphics.a"
+                            FL="dist/default/production/oled-graphics.a"
+                            PD="dist/default/production/oled-graphics.a"
+                            DD="dist/default/debug/oled-graphics.a">
+              </makeArtifact>
+            </linkerLibProjectItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -146,7 +154,7 @@
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories" value="../oled-graphics/include"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -226,7 +234,6 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

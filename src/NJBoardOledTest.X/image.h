@@ -20,7 +20,7 @@ extern "C" {
 		uint16_t height;
 		const uint8_t* array;
 		uint8_t pixels_per_byte;
-	}mimage_t;
+	}image_t;
 
 
 #ifdef	__cplusplus
