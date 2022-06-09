@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/i2c_host/src/mssp2.c mcc_generated_files/spi/src/mssp1.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/tmr0.c main.c board_test.c disp_spi_comm.c timer_delay.c
+SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/i2c_host/src/mssp2.c mcc_generated_files/spi/src/mssp1.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/tmr0.c main.c board_test.c disp_spi_comm.c timer_delay.c test_image_64x55.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1 ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/board_test.p1 ${OBJECTDIR}/disp_spi_comm.p1 ${OBJECTDIR}/timer_delay.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1.d ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/system.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/board_test.p1.d ${OBJECTDIR}/disp_spi_comm.p1.d ${OBJECTDIR}/timer_delay.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1 ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/board_test.p1 ${OBJECTDIR}/disp_spi_comm.p1 ${OBJECTDIR}/timer_delay.p1 ${OBJECTDIR}/test_image_64x55.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1.d ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/system.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/board_test.p1.d ${OBJECTDIR}/disp_spi_comm.p1.d ${OBJECTDIR}/timer_delay.p1.d ${OBJECTDIR}/test_image_64x55.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1 ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/board_test.p1 ${OBJECTDIR}/disp_spi_comm.p1 ${OBJECTDIR}/timer_delay.p1
+OBJECTFILES=${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1 ${OBJECTDIR}/mcc_generated_files/spi/src/mssp1.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/delay.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr0.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/board_test.p1 ${OBJECTDIR}/disp_spi_comm.p1 ${OBJECTDIR}/timer_delay.p1 ${OBJECTDIR}/test_image_64x55.p1
 
 # Source Files
-SOURCEFILES=mcc_generated_files/i2c_host/src/mssp2.c mcc_generated_files/spi/src/mssp1.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/tmr0.c main.c board_test.c disp_spi_comm.c timer_delay.c
+SOURCEFILES=mcc_generated_files/i2c_host/src/mssp2.c mcc_generated_files/spi/src/mssp1.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/tmr0.c main.c board_test.c disp_spi_comm.c timer_delay.c test_image_64x55.c
 
 
 
@@ -198,6 +198,14 @@ ${OBJECTDIR}/timer_delay.p1: timer_delay.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/timer_delay.d ${OBJECTDIR}/timer_delay.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/timer_delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/test_image_64x55.p1: test_image_64x55.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test_image_64x55.p1.d 
+	@${RM} ${OBJECTDIR}/test_image_64x55.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -flocal -maddrqual=ignore -xassembler-with-cpp -I"../oled-graphics/include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mstackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/test_image_64x55.p1 test_image_64x55.c 
+	@-${MV} ${OBJECTDIR}/test_image_64x55.d ${OBJECTDIR}/test_image_64x55.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/test_image_64x55.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/mcc_generated_files/i2c_host/src/mssp2.p1: mcc_generated_files/i2c_host/src/mssp2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/i2c_host/src" 
@@ -302,6 +310,14 @@ ${OBJECTDIR}/timer_delay.p1: timer_delay.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -flocal -maddrqual=ignore -xassembler-with-cpp -I"../oled-graphics/include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mstackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/timer_delay.p1 timer_delay.c 
 	@-${MV} ${OBJECTDIR}/timer_delay.d ${OBJECTDIR}/timer_delay.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/timer_delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/test_image_64x55.p1: test_image_64x55.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test_image_64x55.p1.d 
+	@${RM} ${OBJECTDIR}/test_image_64x55.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -flocal -maddrqual=ignore -xassembler-with-cpp -I"../oled-graphics/include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mstackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/test_image_64x55.p1 test_image_64x55.c 
+	@-${MV} ${OBJECTDIR}/test_image_64x55.d ${OBJECTDIR}/test_image_64x55.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/test_image_64x55.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

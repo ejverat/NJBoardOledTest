@@ -13,6 +13,7 @@
 #include "images.h"
 
 static gdisplay_t nhaven_disp;
+extern graphic_t test_image_64x55;
 
 /*#include "gdisplay.h"
 #include "SSD1322.h"
@@ -63,7 +64,7 @@ void hw_test_display_ssd1322(size_t height, size_t width)
   pos.col = 0;
   pos.row = 0;
   
-  nhaven_disp.draw_fn(&pos,&logo);
+  nhaven_disp.draw_fn(&pos,&test_image_64x55);
 
   /*
    DELAY_milliseconds(2000);
