@@ -4,9 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/timer.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/display_ssd1306_128x64.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/ssd1322_def.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/gdisplay.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/ssd1322_cmd.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/NHD-312-25664UCB2.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/display_comm.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/ssd1322.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/gdisplay_driver.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/display_ssd1306_128x64.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/NHD-312-25664UCB2.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/queue.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/ssd1306.c</file>
         </group>
     </open-files>
 </project-private>

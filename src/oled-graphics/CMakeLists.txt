@@ -28,6 +28,14 @@ add_library(oled-graphics SHARED
   include/gdisplay_driver.h
   include/timer.h
   include/ssd1322_utils.h
+  include/ssd1306_def.h
+  include/ssd1306_cmd.h
+  src/ssd1306_cmd.c
+  include/ssd1306.h
+  include/ssd1306_utils.h
+  src/ssd1306.c
+  include/display_ssd1306_128x64.h
+  src/display_ssd1306_128x64.c
 )
 
 target_include_directories(oled-graphics

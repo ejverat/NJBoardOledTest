@@ -14,7 +14,10 @@
             <make-dep-projects>
                 <make-dep-project>../oled-graphics</make-dep-project>
             </make-dep-projects>
-            <sourceRootList/>
+            <sourceRootList>
+                <sourceRootElem>../oled-graphics/include</sourceRootElem>
+                <sourceRootElem>../oled-graphics/src</sourceRootElem>
+            </sourceRootList>
             <confList>
                 <confElem>
                     <name>default</name>

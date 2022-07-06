@@ -12,7 +12,11 @@
 #include "graphic2d_objects.h"
 #include "images.h"
 
+#include "disp_i2c_comm.h"
+#include "display_ssd1306_128x64.h"
+
 static gdisplay_t nhaven_disp;
+static gdisplay_t ssd1306_12864_disp;
 extern graphic_t test_image_64x55;
 
 /*#include "gdisplay.h"
@@ -40,6 +44,23 @@ void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
 	logo.size = sizeof(ev_img);
 	draw_gdisplay(gd, 0, 1, &logo);
 	DELAY_milliseconds(5000);*/
+  i2c_comm_set_address(address);
+  display_ssd1306_128x64_setup (&ssd1306_12864_disp,i2c_comm_instance (),timer_delay_instance ());
+  display_ssd1306_128x64_init ();
+  
+  area2d_t area;
+  area.start_col = 0;
+  area.start_row = 0;
+  area.end_col = width;
+  area.end_row = height;
+  ssd1306_12864_disp.clear_fn(&area);
+  
+  pos2d_t pos;
+  pos.col = 0;
+  pos.row = 0;
+  
+  ssd1306_12864_disp.draw_fn(&pos,&test_image_64x55);
+  
 }
 
 void hw_test_display_ssd1322(size_t height, size_t width)
@@ -53,12 +74,13 @@ void hw_test_display_ssd1322(size_t height, size_t width)
   area.end_col = width;
   area.end_row = height;
   nhaven_disp.clear_fn(&area);
-  
+  /*
   graphic_t logo;
   logo.array = NHD_Logo;
   logo.pixel_bit_size = 1;
   logo.height = 25;
   logo.width = 232;
+   * */
   
   pos2d_t pos;
   pos.col = 0;

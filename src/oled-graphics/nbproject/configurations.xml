@@ -15,6 +15,11 @@
         <itemPath>include/gdisplay.h</itemPath>
         <itemPath>include/graphic2d_objects.h</itemPath>
         <itemPath>include/timer.h</itemPath>
+        <itemPath>include/ssd1306.h</itemPath>
+        <itemPath>include/ssd1306_cmd.h</itemPath>
+        <itemPath>include/ssd1306_def.h</itemPath>
+        <itemPath>include/ssd1306_utils.h</itemPath>
+        <itemPath>include/display_ssd1306_128x64.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -29,6 +34,9 @@
         <itemPath>src/queue.c</itemPath>
         <itemPath>src/NHD-312-25664UCB2.c</itemPath>
         <itemPath>src/ssd1322.c</itemPath>
+        <itemPath>src/ssd1306.c</itemPath>
+        <itemPath>src/ssd1306_cmd.c</itemPath>
+        <itemPath>src/display_ssd1306_128x64.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

@@ -1,6 +1,6 @@
 
 /*
- * File:   ssd1322_cmd.h
+ * File:   ssd1322_def.h
  * Author: evera
  *
  * Created on December 15, 2021, 12:59 AM

@@ -34,6 +34,8 @@
       <itemPath>images.h</itemPath>
       <itemPath>disp_spi_comm.h</itemPath>
       <itemPath>timer_delay.h</itemPath>
+      <itemPath>disp_i2c_comm.h</itemPath>
+      <itemPath>../oled-graphics/include/display_ssd1306_128x64.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -79,6 +81,8 @@
       <itemPath>disp_spi_comm.c</itemPath>
       <itemPath>timer_delay.c</itemPath>
       <itemPath>test_image_64x55.c</itemPath>
+      <itemPath>disp_i2c_comm.c</itemPath>
+      <itemPath>../oled-graphics/src/display_ssd1306_128x64.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -87,6 +91,10 @@
       <itemPath>NJBoardOledTest.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../oled-graphics/include</Elem>
+    <Elem>../oled-graphics/src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
