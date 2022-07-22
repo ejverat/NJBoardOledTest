@@ -50,6 +50,8 @@ add_executable(OledGraphicsUnitTests main.cpp
                 src/tst_nhd31125664ucb2.cpp
                 src/tst_ssd1322_utils.cpp
                 src/tst_ssd1306_utils.cpp
+                src/tst_ssd1306_generic_display.cpp
+                src/tst_ssd1306_pixels_fetcher.cpp
                ${GTestFiles})
 add_test(NAME OledGraphicsUnitTests COMMAND OledGraphicsUnitTests)
 target_link_libraries(OledGraphicsUnitTests PRIVATE Threads::Threads

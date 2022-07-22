@@ -36,21 +36,25 @@ bool i2c_comm_init()
 
 void i2c_comm_enable()
 {
-	uint8_t dummy;
-	while(!queue_is_empty(&q))
-	{
-		queue_dequeue(&q,&dummy);
-	}
+  queue_init(&q,sizeof(uint8_t),q_buffer,sizeof(q_buffer));
 }
 
 void i2c_comm_disable()
 {
-	uint8_t element;
-
-	while(!queue_is_empty(&q))
+  bool result = false;
+  while(i2c2_host_interface.IsBusy());
+  if(i2c2_host_interface.Write(i2c_add,q_buffer,(size_t)(q.index*q.element_size)))
 	{
-		queue_dequeue(&q,&element);
+		DELAY_milliseconds(10);
+		if(i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
+		{
+                    result = true;
+		}
+                  if (result)
+                    return;
 	}
+  if (result)
+    return;
 }
 void i2c_comm_start_reset()
 {}
@@ -66,18 +70,6 @@ void i2c_comm_enable_cmd()
 }
 void i2c_comm_disable_cmd()
 {
-	if(i2c2_host_interface.Write(i2c_add,q_buffer,(size_t)(q.index*q.element_size)))
-	{
-		DELAY_milliseconds(10);
-		if(i2c2_host_interface.IsBusy())
-		{
-			return;
-		}
-		if(i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
-		{
-			return;
-		}
-	}
 }
 void i2c_comm_enable_data()
 {
@@ -89,18 +81,6 @@ void i2c_comm_enable_data()
 }
 void i2c_comm_disable_data()
 {
-	if(i2c2_host_interface.Write(i2c_add,q_buffer,(size_t)(q.index*q.element_size)))
-	{
-		DELAY_milliseconds(10);
-		if(i2c2_host_interface.IsBusy())
-		{
-			return;
-		}
-		if(i2c2_host_interface.ErrorGet() == I2C_ERROR_NONE)
-		{
-			return;
-		}
-	}
 }
 bool i2c_comm_send_byte(uint8_t byte)
 {

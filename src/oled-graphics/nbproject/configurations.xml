@@ -20,6 +20,7 @@
         <itemPath>include/ssd1306_def.h</itemPath>
         <itemPath>include/ssd1306_utils.h</itemPath>
         <itemPath>include/display_ssd1306_128x64.h</itemPath>
+        <itemPath>include/fetcher.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -37,6 +38,7 @@
         <itemPath>src/ssd1306.c</itemPath>
         <itemPath>src/ssd1306_cmd.c</itemPath>
         <itemPath>src/display_ssd1306_128x64.c</itemPath>
+        <itemPath>src/fetcher.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

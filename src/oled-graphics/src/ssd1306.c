@@ -25,7 +25,6 @@ bool ssd1306_init()
         return false;
 
     ssd1306_comm->enable_fn();
-    //ssd1306_comm->send_byte_fn(SSD1306_STREAM_MSK | SSD1306_CMD_MSK);
 
     ssd1306_send_cmd(SSD1306_CMD_DISPLAYOFF, params);				//
     params[0] = 0x81;

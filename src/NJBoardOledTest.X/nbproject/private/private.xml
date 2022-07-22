@@ -3,20 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/display_ssd1306_128x64.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/gdisplay.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/fetcher.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/board_test.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/NHD-312-25664UCB2.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/gdisplay.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/board_test.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/system/src/interrupt.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/images.h</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/disp_spi_comm.h</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/timer_delay.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/test_image_64x55.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/main.c</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/disp_spi_comm.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/i2c_host/src/mssp2.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/timer/src/delay.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/SSD1306.h</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/ssd1322_spi.c</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/disp_i2c_comm.h</file>
-            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/timer_delay.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/graphic2d_objects.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/mcc_generated_files/i2c_host/i2c_host_interface.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/include/ssd1306_def.h</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/queue.c</file>
             <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/disp_i2c_comm.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/oled-graphics/src/ssd1306.c</file>
+            <file>file:/home/evera/Projects/NJBoardOledTest/src/NJBoardOledTest.X/test_image_37x32.c</file>
         </group>
     </open-files>
 </project-private>

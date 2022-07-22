@@ -83,6 +83,7 @@
       <itemPath>test_image_64x55.c</itemPath>
       <itemPath>disp_i2c_comm.c</itemPath>
       <itemPath>../oled-graphics/src/display_ssd1306_128x64.c</itemPath>
+      <itemPath>test_image_37x32.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

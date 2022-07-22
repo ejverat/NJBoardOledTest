@@ -18,36 +18,16 @@
 static gdisplay_t nhaven_disp;
 static gdisplay_t ssd1306_12864_disp;
 extern graphic_t test_image_64x55;
-
-/*#include "gdisplay.h"
-#include "SSD1322.h"
-#include "SSD1306.h"
-#include "images.h"
-
-#include <stdarg.h>
- */
-
+extern graphic_t test_image_37x32;
 
 void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
 {
-  /*
-	ssd1306_setup(address, height,width);
-	gdisplay_t* gd = ssd1306_get_gd();
-	init_gdisplay(gd);
 
-	DELAY_milliseconds(2000);
-	clear_gdisplay(gd);
-	DELAY_milliseconds(2000);
-
-	image_t logo;
-	logo.data = ev_img;
-	logo.size = sizeof(ev_img);
-	draw_gdisplay(gd, 0, 1, &logo);
-	DELAY_milliseconds(5000);*/
   i2c_comm_set_address(address);
   display_ssd1306_128x64_setup (&ssd1306_12864_disp,i2c_comm_instance (),timer_delay_instance ());
   display_ssd1306_128x64_init ();
-  
+
+  waiter_t* w = timer_delay_instance();
   area2d_t area;
   area.start_col = 0;
   area.start_row = 0;
@@ -58,8 +38,16 @@ void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
   pos2d_t pos;
   pos.col = 0;
   pos.row = 0;
+
+  const graphic_t gtemp = 
+  {
+	  128,
+	  32,
+	  (const uint8_t*) &ev_img2[0],
+	  1
+  };
   
-  ssd1306_12864_disp.draw_fn(&pos,&test_image_64x55);
+  ssd1306_12864_disp.draw_fn(&pos,&test_image_37x32);
   
 }
 
@@ -74,13 +62,6 @@ void hw_test_display_ssd1322(size_t height, size_t width)
   area.end_col = width;
   area.end_row = height;
   nhaven_disp.clear_fn(&area);
-  /*
-  graphic_t logo;
-  logo.array = NHD_Logo;
-  logo.pixel_bit_size = 1;
-  logo.height = 25;
-  logo.width = 232;
-   * */
   
   pos2d_t pos;
   pos.col = 0;
@@ -88,14 +69,6 @@ void hw_test_display_ssd1322(size_t height, size_t width)
   
   nhaven_disp.draw_fn(&pos,&test_image_64x55);
 
-  /*
-   DELAY_milliseconds(2000);
-
-  area.end_col = 232;
-  area.end_row = 25;
-  nhaven_disp.clear_fn(&area);
-  */
-  
 }
 
 
