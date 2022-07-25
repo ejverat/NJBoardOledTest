@@ -36,8 +36,8 @@ add_library(oled-graphics SHARED
   include/fetcher.h
   src/fetcher.c
   src/ssd1306.c
-  include/display_ssd1306_128x64.h
-  src/display_ssd1306_128x64.c
+  include/display_ssd1306.h
+  src/display_ssd1306.c
 )
 
 target_include_directories(oled-graphics

@@ -12,8 +12,8 @@ extern "C"{
 #include "ssd1306_cmd.h"
 #include "ssd1306_cmd.c"
 #include "timer.h"
-#include "display_ssd1306_128x64.h"
-#include "display_ssd1306_128x64.c"
+#include "display_ssd1306.h"
+#include "display_ssd1306.c"
 #include "display_comm.h"
 #include "gdisplay.h"
 
@@ -116,8 +116,8 @@ TEST(ssd1306_generic_display,initDisp)
     calls << std::flush;
     std::string Str;
 
-    display_ssd1306_128x64_setup(&fakeDisp,&fakeComm,&fakeTimer);
+    display_ssd1306_setup(&fakeDisp,&fakeComm,&fakeTimer);
 
-    EXPECT_TRUE(display_ssd1306_128x64_init());
+    EXPECT_TRUE(display_ssd1306_init(128,64));
     Str = calls.str();
 }

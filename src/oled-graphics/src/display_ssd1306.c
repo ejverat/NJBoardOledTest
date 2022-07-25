@@ -1,4 +1,4 @@
-#include "display_ssd1306_128x64.h"
+#include "display_ssd1306.h"
 #include "ssd1306.h"
 #include "ssd1306_utils.h"
 #include "fetcher.h"
@@ -6,23 +6,25 @@
 static gdisplay_driver_t driver;
 static uint8_t buffer[15];
 
-static const uint16_t width = 128;
-static const uint16_t height = 64;
+static uint16_t width = 128;
+static uint16_t height = 64;
 
-void display_ssd1306_128x64_setup(gdisplay_t* display, display_comm_t* comm, waiter_t* timer)
+void display_ssd1306_setup(gdisplay_t* display, display_comm_t* comm, waiter_t* timer)
 {
     ssd1306_setup(&driver,comm,timer);
     display->driver = &driver;
     display->height = height;
     display->width = width;
-    display->clear_fn = display_ssd1306_128x64_clear;
-    display->draw_fn = display_ssd1306_128x64_draw;
+    display->clear_fn = display_ssd1306_clear;
+    display->draw_fn = display_ssd1306_draw;
 }
-bool display_ssd1306_128x64_init()
+bool display_ssd1306_init(uint8_t display_width, uint8_t display_height)
 {
+    width = display_width;
+    height = display_height;
     return driver.init_fn();
 }
-bool display_ssd1306_128x64_clear(area2d_t* area)
+bool display_ssd1306_clear(area2d_t* area)
 {
     size_t i;
 
@@ -50,7 +52,7 @@ bool display_ssd1306_128x64_clear(area2d_t* area)
     driver.comm->disable_fn();
     return true;
 }
-bool display_ssd1306_128x64_draw(pos2d_t* pos, graphic_t* graphic)
+bool display_ssd1306_draw(pos2d_t* pos, graphic_t* graphic)
 {
     driver.comm->enable_fn();
 

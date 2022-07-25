@@ -13,10 +13,10 @@
 #include "images.h"
 
 #include "disp_i2c_comm.h"
-#include "display_ssd1306_128x64.h"
+#include "display_ssd1306.h"
 
 static gdisplay_t nhaven_disp;
-static gdisplay_t ssd1306_12864_disp;
+static gdisplay_t ssd1306_128x32_disp;
 extern graphic_t test_image_64x55;
 extern graphic_t test_image_37x32;
 
@@ -24,8 +24,8 @@ void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
 {
 
   i2c_comm_set_address(address);
-  display_ssd1306_128x64_setup (&ssd1306_12864_disp,i2c_comm_instance (),timer_delay_instance ());
-  display_ssd1306_128x64_init ();
+  display_ssd1306_setup (&ssd1306_128x32_disp,i2c_comm_instance (),timer_delay_instance ());
+  display_ssd1306_init (128,32);
 
   waiter_t* w = timer_delay_instance();
   area2d_t area;
@@ -33,7 +33,7 @@ void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
   area.start_row = 0;
   area.end_col = width;
   area.end_row = height;
-  ssd1306_12864_disp.clear_fn(&area);
+  ssd1306_128x32_disp.clear_fn(&area);
   
   pos2d_t pos;
   pos.col = 0;
@@ -47,7 +47,7 @@ void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
 	  1
   };
   
-  ssd1306_12864_disp.draw_fn(&pos,&test_image_37x32);
+  ssd1306_128x32_disp.draw_fn(&pos,&test_image_37x32);
   
 }
 
