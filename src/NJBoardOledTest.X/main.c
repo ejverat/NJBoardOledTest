@@ -65,7 +65,7 @@ int main(void)
     hw_test_osc();
 
     hw_test_display_ssd1306(SSD1306_I2C_ADDR,128,64);
-    hw_test_display_ssd1306(SSD1306_I2C_ADDR,128,32);
+    //hw_test_display_ssd1306(SSD1306_I2C_ADDR,128,32);
     hw_test_display_ssd1322(64,256);
 
     while(1)

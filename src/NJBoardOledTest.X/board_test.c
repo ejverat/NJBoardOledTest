@@ -6,47 +6,69 @@
 #include "mcc_generated_files/system/pins.h"
 #include "mcc_generated_files/spi/mssp1.h"
 
-#include "gdisplay.h"
-#include "SSD1322.h"
-#include "SSD1306.h"
+#include "NHD-312-25664UCB2.h"
+#include "timer_delay.h"
+#include "disp_spi_comm.h"
+#include "graphic2d_objects.h"
 #include "images.h"
 
-#include <stdarg.h>
+#include "disp_i2c_comm.h"
+#include "display_ssd1306.h"
 
+static gdisplay_t nhaven_disp;
+static gdisplay_t ssd1306_128x32_disp;
+extern graphic_t test_image_64x55;
+extern graphic_t test_image_37x32;
 
 void hw_test_display_ssd1306(uint8_t address, size_t width, size_t height)
 {
-	ssd1306_setup(address, height,width);
-	gdisplay_t* gd = ssd1306_get_gd();
-	init_gdisplay(gd);
 
-	DELAY_milliseconds(2000);
-	clear_gdisplay(gd);
-	DELAY_milliseconds(2000);
+  i2c_comm_set_address(address);
+  display_ssd1306_setup (&ssd1306_128x32_disp,i2c_comm_instance (),timer_delay_instance ());
+  display_ssd1306_init (128,32);
 
-	image_t logo;
-	logo.data = ev_img;
-	logo.size = sizeof(ev_img);
-	draw_gdisplay(gd, 0, 1, &logo);
-	DELAY_milliseconds(5000);
+  waiter_t* w = timer_delay_instance();
+  area2d_t area;
+  area.start_col = 0;
+  area.start_row = 0;
+  area.end_col = width;
+  area.end_row = height;
+  ssd1306_128x32_disp.clear_fn(&area);
+  
+  pos2d_t pos;
+  pos.col = 0;
+  pos.row = 0;
+
+  const graphic_t gtemp = 
+  {
+	  128,
+	  32,
+	  (const uint8_t*) &ev_img2[0],
+	  1
+  };
+  
+  ssd1306_128x32_disp.draw_fn(&pos,&test_image_37x32);
+  
 }
 
 void hw_test_display_ssd1322(size_t height, size_t width)
 {
-	//reset status
-	ssd1322_setup(height, width);
-	gdisplay_t* gd = ssd1322_get_gd();
-	init_gdisplay(gd);
+  nhd31225664ucb2_setup(&nhaven_disp,spi_comm_instance(),timer_delay_instance());
+  nhd31225664ucb2_init ();
+  
+  area2d_t area;
+  area.start_col = 0;
+  area.start_row = 0;
+  area.end_col = width;
+  area.end_row = height;
+  nhaven_disp.clear_fn(&area);
+  
+  pos2d_t pos;
+  pos.col = 0;
+  pos.row = 0;
+  
+  nhaven_disp.draw_fn(&pos,&test_image_64x55);
 
-	DELAY_milliseconds(2000);
-	clear_gdisplay(gd);
-	DELAY_milliseconds(2000);
-
-	image_t logo;
-	logo.data = NHD_Logo;
-	logo.size = sizeof(NHD_Logo);
-	draw_gdisplay(gd, 0, 0, &logo);
-	DELAY_milliseconds(5000);
 }
 
 
